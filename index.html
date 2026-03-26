@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio | [Aapka Naam Yahan]</title>
+  <title>Portfolio | [Saif Ali]</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <style>
@@ -73,7 +73,7 @@
   <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
 
   <div class="profile-card">
-    <h1>Hello, I am [Aapka Naam Yahan]!</h1>
+    <h1>Hello, I am [Saif Ali]!</h1>
     <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Coding Workspace" class="profile-img">
     <p>I love building new projects and learning programming. Welcome to my portfolio website!</p>
     
@@ -100,7 +100,7 @@ print("The sum of the numbers is:", total)
     
     <div class="project-section" style="background-color: transparent; border: none; padding: 0;">
       <h2>Contact Me</h2>
-      <form id="myForm" class="contact-form" onsubmit="sendMessage(event)">
+      <form id="https://formspree.io/f/mzdkbwaj" class="contact-form" onsubmit="sendMessage(event)">
         <input type="text" id="senderName" placeholder="Your Name (Aapka Naam)" required>
         <input type="email" id="senderEmail" placeholder="Your Email (Aapki Email ID)" required>
         <textarea id="senderMessage" placeholder="Your Message... (Aapka Sandesh)" required></textarea>
@@ -120,21 +120,6 @@ print("The sum of the numbers is:", total)
       } else {
         button.innerHTML = "🌙 Dark Mode";
       }
-    }
-
-    // Contact Form Bhejne ka Function (Naya Jadoo)
-    function sendMessage(event) {
-      // 1. Page ko refresh hone se rokta hai
-      event.preventDefault(); 
-      
-      // 2. User ne form mein jo naam likha hai, use dhoondhta hai
-      let name = document.getElementById("senderName").value;
-      
-      // 3. Screen par ek chhota sa Popup (Alert) dikhata hai
-      alert("Thank You " + name + "! Aapka message bhej diya gaya hai. Main jald hi aapse sampark karunga.");
-      
-      // 4. Form ko wapas khali (reset) kar deta hai
-      document.getElementById("myForm").reset(); 
     }
   </script>
 
