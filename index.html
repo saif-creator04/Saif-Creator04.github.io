@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Mera Portfolio</title>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <style>
-    /* Ye CSS ka hissa hai jahan hum design banate hain */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -16,13 +16,13 @@
     }
     .profile-card {
       background-color: white;
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 auto;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-    img {
+    .profile-img {
       max-width: 100%;
       border-radius: 10px;
       margin-bottom: 20px;
@@ -45,46 +45,74 @@
       text-align: left;
       line-height: 1.6;
     }
+    .project-section {
+      background-color: #f8f9fa; 
+      padding: 20px; 
+      border-radius: 10px; 
+      margin: 20px 0; 
+      text-align: left; 
+      border: 1px solid #ddd;
+    }
+    .code-box {
+      background-color: #2d3436; 
+      color: #f1c40f; 
+      padding: 15px; 
+      border-radius: 5px; 
+      overflow-x: auto; 
+      font-family: monospace;
+      font-size: 14px;
+    }
+    .github-btn {
+      display: inline-block; 
+      background-color: #333; 
+      color: white; 
+      padding: 10px 20px; 
+      text-decoration: none; 
+      border-radius: 5px; 
+      font-size: 14px; 
+      margin-top: 10px;
+    }
+    .github-btn:hover {
+      background-color: #000;
+    }
   </style>
 </head>
 <body>
 
   <div class="profile-card">
-    <h1>Namaste, Main ek Coder hoon!</h1>
+    <h1>Hello, I am a Coder!</h1>
     
-    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Coding Workspace">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Coding Workspace" class="profile-img">
     
-    <p>Main naye projects banana aur programming seekhna pasand karta hoon. Ye meri portfolio website hai!</p>
+    <p>I love building new projects and learning programming. Welcome to my portfolio website!</p>
     
-    <h2>Meri Skills & Projects:</h2>
+    <h2>My Skills & Focus Areas:</h2>
     <ul class="skills-list">
-      <li><b>Web Design:</b> HTML aur CSS seekh raha hoon.</li>
-      <li><b>Python Logic:</b> Math aur calculations par aadharit programs banana.</li>
-      <li><b>Problem Solving:</b> Naye ideas sochna aur unhe code mein badalna.</li>
-    </ul><div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: left; border: 1px solid #ddd;">
+      <li><b>Web Development:</b> Learning HTML and CSS to build responsive websites.</li>
+      <li><b>Python Logic:</b> Creating programs based on math, logic, and calculations.</li>
+      <li><b>Problem Solving:</b> Brainstorming ideas and turning them into functional code.</li>
+    </ul>
+
+    <div class="project-section">
       <h3 style="color: #2c3e50; margin-top: 0;">Project 1: Python Math Solver</h3>
-      <p style="color: #555;">Ye ek Python program hai jo calculations aur math logic solve karta hai. Iska ek chhota sa hissa aap niche dekh sakte hain:</p>
+      <p style="color: #555;">This is a simple Python program that takes user input and performs mathematical calculations. Here is a small snippet of the logic:</p>
       
-      <pre style="background-color: #2d3436; color: #f1c40f; padding: 15px; border-radius: 5px; overflow-x: auto; font-family: monospace;">
+      <pre class="code-box">
 # Simple Math Calculation Logic
-num1 = float(input("Pehla number: "))
-num2 = float(input("Doosra number: "))
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
 
 total = num1 + num2
-print("Dono ka jod hai:", total)
+print("The sum of the numbers is:", total)
       </pre>
 
-      <a href="https://github.com/aapka-username" target="_blank" style="display: inline-block; background-color: #333; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 14px; margin-top: 10px;">
-        💻 Poora Code GitHub Par Dekhein
+      <a href="https://github.com/your-username" target="_blank" class="github-btn">
+        💻 View Full Code on GitHub
       </a>
     </div>
     
-    <a href="mailto:aapka@email.com" class="btn">Mujhse Sampark Karein
-    (6209saifali@gmail.com)</a>
+    <a href="mailto:your.email@example.com" class="btn">Contact Me</a>
   </div>
 
 </body>
-</html>
-
-  </body>
 </html>
