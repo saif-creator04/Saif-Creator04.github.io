@@ -2,95 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio | [Saif Ali]</title> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | [Saif Ali]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <style>
+    /* LIGHT MODE (Pehle jaisa normal design) */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 20px;
-      background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%); /* Slightly updated colors */
+      background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
       color: #333;
       text-align: center;
+      transition: all 0.5s ease; /* Ye color badalte waqt smooth animation dega */
     }
     .profile-card {
       background-color: white;
-      max-width: 650px; /* Slightly wider for better layout */
-      margin: 40px auto; /* Centered with top margin */
+      max-width: 650px;
+      margin: 40px auto;
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.5s ease;
     }
     .profile-img {
       max-width: 100%;
       border-radius: 15px;
       margin-bottom: 25px;
     }
-    h1 {
-      color: #006064;
-      margin-top: 0;
-      font-size: 2.5em;
-    }
-    h2 {
-      color: #00838f;
-      border-bottom: 2px solid #b2ebf2;
-      display: inline-block;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
-    .btn {
-      display: inline-block;
-      background-color: #00796b;
-      color: white;
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      margin-top: 20px;
-      transition: background-color 0.3s;
-    }
-    .btn:hover {
-      background-color: #004d40;
-    }
-    .skills-list {
-      text-align: left;
-      line-height: 1.8;
-      max-width: 500px;
-      margin: 0 auto; /* Center the list box */
-    }
+    h1 { color: #006064; margin-top: 0; font-size: 2.5em; }
+    h2 { color: #00838f; border-bottom: 2px solid #b2ebf2; display: inline-block; padding-bottom: 5px; }
+    
+    .skills-list { text-align: left; line-height: 1.8; max-width: 500px; margin: 0 auto; }
+    
     .project-section {
-      background-color: #f1f8f9; 
-      padding: 25px; 
-      border-radius: 15px; 
-      margin: 30px 0; 
-      text-align: left; 
-      border: 1px solid #cceef3;
+      background-color: #f1f8f9; padding: 25px; border-radius: 15px; 
+      margin: 30px 0; text-align: left; border: 1px solid #cceef3;
+      transition: all 0.5s ease;
     }
     .code-box {
-      background-color: #263238; 
-      color: #ffeb3b; 
-      padding: 18px; 
-      border-radius: 8px; 
-      overflow-x: auto; 
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 15px;
+      background-color: #263238; color: #ffeb3b; padding: 18px; 
+      border-radius: 8px; overflow-x: auto; font-family: 'Courier New', monospace;
+    }
+    
+    /* BUTTONS */
+    .btn {
+      display: inline-block; background-color: #00796b; color: white; 
+      padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold;
     }
     .github-btn {
-      display: inline-block; 
-      background-color: #37474f; 
-      color: white; 
-      padding: 12px 22px; 
-      text-decoration: none; 
-      border-radius: 8px; 
-      font-size: 14px; 
-      margin-top: 15px;
+      display: inline-block; background-color: #37474f; color: white; 
+      padding: 12px 22px; text-decoration: none; border-radius: 8px; margin-top: 15px;
     }
-    .github-btn:hover {
-      background-color: #263238;
+
+    /* DARK MODE BUTTON STYLING */
+    #theme-btn {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      position: absolute; /* Button ko upar kone mein set karne ke liye */
+      top: 20px;
+      right: 20px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
+
+    /* ========================================== */
+    /* DARK MODE CSS (Jab jadoo chalega toh ye colors aayenge) */
+    /* ========================================== */
+    body.dark-theme {
+      background: linear-gradient(135deg, #121212 0%, #2c3e50 100%);
+      color: #e0e0e0;
+    }
+    body.dark-theme .profile-card {
+      background-color: #1e1e1e;
+      box-shadow: 0 10px 30px rgba(255,255,255,0.05);
+    }
+    body.dark-theme h1 { color: #80deea; }
+    body.dark-theme h2 { color: #4dd0e1; border-bottom: 2px solid #006064; }
+    body.dark-theme .project-section { background-color: #263238; border-color: #37474f; }
+    body.dark-theme #theme-btn { background-color: #f1c40f; color: #333; }
   </style>
 </head>
 <body>
+
+  <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
 
   <div class="profile-card">
     <h1>Hello, I am [Saif Ali]!</h1>
@@ -101,14 +101,14 @@
     
     <h2>My Skills & Focus Areas</h2>
     <ul class="skills-list">
-      <li><b>Web Development:</b> Learning HTML and CSS to build responsive websites.</li>
+      <li><b>Web Development:</b> HTML, CSS, aur ab thodi JavaScript bhi!</li>
       <li><b>Python Logic:</b> Creating programs based on math, logic, and calculations.</li>
       <li><b>Problem Solving:</b> Brainstorming ideas and turning them into functional code.</li>
     </ul>
 
     <div class="project-section">
-      <h3 style="color: #006064; margin-top: 0;">Project 1: Python Math Solver</h3>
-      <p style="color: #555;">This is a simple Python program that takes user input and performs mathematical calculations. Here is a small snippet of the logic:</p>
+      <h3 style="margin-top: 0;">Project 1: Python Math Solver</h3>
+      <p>This is a simple Python program that takes user input and performs mathematical calculations.</p>
       
       <pre class="code-box">
 # Simple Math Calculation Logic
@@ -119,13 +119,26 @@ total = num1 + num2
 print("The sum of the numbers is:", total)
       </pre>
 
-      <a href="https://github.com/your-username" target="_blank" class="github-btn">
-        💻 View Full Code on GitHub
-      </a>
+      <a href="https://github.com/your-username" target="_blank" class="github-btn">💻 View Full Code on GitHub</a>
     </div>
     
     <a href="mailto:6209saifali@gmail.com" class="btn">Contact Me</a>
   </div>
+
+  <script>
+    function toggleTheme() {
+      // Body mein 'dark-theme' class lagao ya hatao
+      document.body.classList.toggle("dark-theme");
+      
+      // Button ka text aur icon badlo
+      let button = document.getElementById("theme-btn");
+      if (document.body.classList.contains("dark-theme")) {
+        button.innerHTML = "☀️ Light Mode";
+      } else {
+        button.innerHTML = "🌙 Dark Mode";
+      }
+    }
+  </script>
 
 </body>
 </html>
