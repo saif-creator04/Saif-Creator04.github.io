@@ -1,24 +1,73 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Mera Portfolio</title>
-  </head>
-  <body style="background-color: #f0f8ff; font-family: Arial;">
+<head>
+  <title>Mera Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    /* Ye CSS ka hissa hai jahan hum design banate hain */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      text-align: center;
+    }
+    .profile-card {
+      background-color: white;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+    .skills-list {
+      text-align: left;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
 
-    <h1 style="color: #2c3e50;">Namaste, Main ek Coder hoon!</h1>
-    <p style="color: #34495e;">Ye meri pehli website hai aur mujhe problem-solving bahut pasand hai.</p>
-
-    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500" width="400" style="border-radius: 10px;">
-
-    <h2 style="color: #2980b9;">Mere Projects & Skills:</h2>
-    <ul>
-      <li>Python Programming</li>
-      <li><b>Math Project:</b> Python ka use karke Area Under the Curve nikalna aur Integration solve karna.</li>
-      <li>Web Development (HTML)</li>
+  <div class="profile-card">
+    <h1>Namaste, Main ek Coder hoon!</h1>
+    
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Coding Workspace">
+    
+    <p>Main naye projects banana aur programming seekhna pasand karta hoon. Ye meri portfolio website hai!</p>
+    
+    <h2>Meri Skills & Projects:</h2>
+    <ul class="skills-list">
+      <li><b>Web Design:</b> HTML aur CSS seekh raha hoon.</li>
+      <li><b>Python Logic:</b> Math aur calculations par aadharit programs banana.</li>
+      <li><b>Problem Solving:</b> Naye ideas sochna aur unhe code mein badalna.</li>
     </ul>
+    
+    <a href="mailto:aapka@email.com" class="btn">Mujhse Sampark Karein</a>
+  </div>
 
-    <p style="background-color: #e74c3c; color: white; padding: 10px; width: 250px; text-align: center;">
-      Mujhse Sampark Karein
-    </p>
+</body>
+</html>
 
   </body>
 </html>
