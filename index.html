@@ -81,17 +81,23 @@
     </ul>
 
     <div class="project-section">
-      <h3 style="margin-top: 0;">Project 1: Python Math Solver</h3>
-      <p>This is a simple Python program that takes user input and performs mathematical calculations.</p>
+      <h3 style="margin-top: 0;">Project 1: Number Guessing Game (Python)</h3>
+      <p>This is a fun game I built where the computer thinks of a random number, and you have to guess it using logic and decision-making.</p>
+      
       <pre class="code-box">
-# Simple Math Calculation Logic
-num1 = float(input("Enter first number: "))
-num2 = float(input("Enter second number: "))
+import random
+secret_number = random.randint(1, 10)
+user_guess = int(input("Guess a number (1-10): "))
 
-total = num1 + num2
-print("The sum of the numbers is:", total)
+if user_guess == secret_number:
+    print("You won! 🎉")
+else:
+    print(f"Wrong! The number was {secret_number}")
       </pre>
-      <a href="https://github.com/your-username" target="_blank" class="github-btn">💻 View Full Code on GitHub</a>
+
+      <a href="https://github.com/your-username" target="_blank" class="github-btn">
+        💻 View Full Game Code on GitHub
+      </a>
     </div>
     
     <div class="project-section" style="background-color: transparent; border: none; padding: 0;">
