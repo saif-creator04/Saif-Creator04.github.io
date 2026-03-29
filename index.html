@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio | [Saif Ali]</title>
+  <title>Portfolio | Saif Ali</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <style>
-    /* ... (Purani CSS waisi hi hai) ... */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0; padding: 20px;
@@ -44,9 +43,7 @@
       top: 20px; right: 20px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
 
-    /* ========================================== */
     /* NAYI CSS: CONTACT FORM KE LIYE */
-    /* ========================================== */
     .contact-form {
       display: flex; flex-direction: column; gap: 15px; margin-top: 20px; text-align: left;
     }
@@ -62,7 +59,6 @@
     body.dark-theme h2 { color: #4dd0e1; border-bottom: 2px solid #006064; }
     body.dark-theme .project-section { background-color: #263238; border-color: #37474f; }
     body.dark-theme #theme-btn { background-color: #f1c40f; color: #333; }
-    /* Dark mode form colors */
     body.dark-theme .contact-form input, body.dark-theme .contact-form textarea {
       background-color: #37474f; color: white; border-color: #546e7a;
     }
@@ -73,7 +69,7 @@
   <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
 
   <div class="profile-card">
-    <h1>Hello, I am [Saif Ali]!</h1>
+    <h1>Hello, I am Saif Ali!</h1>
     <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Coding Workspace" class="profile-img">
     <p>I love building new projects and learning programming. Welcome to my portfolio website!</p>
     
@@ -101,9 +97,9 @@ print("The sum of the numbers is:", total)
     <div class="project-section" style="background-color: transparent; border: none; padding: 0;">
       <h2>Contact Me</h2>
       <form action="https://formspree.io/f/mzdkbwaj" method="POST" class="contact-form">
-        <input type="text" id="senderName" placeholder="Your Name (Aapka Naam)" required>
-        <input type="email" id="senderEmail" placeholder="Your Email (Aapki Email ID)" required>
-        <textarea id="senderMessage" placeholder="Your Message... (Aapka Sandesh)" required></textarea>
+        <input type="text" name="name" id="senderName" placeholder="Your Name (Aapka Naam)" required>
+        <input type="email" name="email" id="senderEmail" placeholder="Your Email (Aapki Email ID)" required>
+        <textarea name="message" id="senderMessage" placeholder="Your Message... (Aapka Sandesh)" required></textarea>
         <button type="submit" class="btn" style="width: 100%;">Send Message 🚀</button>
       </form>
     </div>
@@ -111,7 +107,6 @@ print("The sum of the numbers is:", total)
   </div>
 
   <script>
-    // Dark Mode Function
     function toggleTheme() {
       document.body.classList.toggle("dark-theme");
       let button = document.getElementById("theme-btn");
