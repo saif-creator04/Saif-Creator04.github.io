@@ -2,114 +2,328 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio | Saif Ali</title>
+  <title>Saif Ali | Premium Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 20px;
-      background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
-      color: #333; text-align: center; transition: all 0.5s ease;
-    }
-    .profile-card {
-      background-color: white; max-width: 650px; margin: 40px auto;
-      padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: all 0.5s ease;
-    }
-    .profile-img { max-width: 100%; border-radius: 15px; margin-bottom: 25px; }
-    h1 { color: #006064; margin-top: 0; font-size: 2.5em; }
-    h2 { color: #00838f; border-bottom: 2px solid #b2ebf2; display: inline-block; padding-bottom: 5px; }
-    .project-section {
-      background-color: #f1f8f9; padding: 25px; border-radius: 15px; 
-      margin: 30px 0; text-align: left; border: 1px solid #cceef3; transition: all 0.5s ease;
-    }
-    .btn {
-      display: inline-block; background-color: #00796b; color: white; border: none; cursor: pointer;
-      padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 16px;
-    }
-    #theme-btn {
-      background-color: #333; color: white; border: none; padding: 10px 20px;
-      border-radius: 20px; cursor: pointer; font-size: 14px; position: absolute; 
-      top: 20px; right: 20px; font-weight: bold;
+    /* NAYE MODERN COLORS AUR THEME VARIABLES */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --text-main: #2d3436;
+      --text-muted: #636e72;
+      --accent-color: #0984e3;
+      --accent-hover: #74b9ff;
+      --border-color: rgba(0, 0, 0, 0.05);
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     }
 
-    /* DARK MODE STYLES */
-    body.dark-theme { background: linear-gradient(135deg, #121212 0%, #2c3e50 100%); color: #e0e0e0; }
-    body.dark-theme .profile-card { background-color: #1e1e1e; }
-    body.dark-theme .project-section { background-color: #263238; border-color: #37474f; }
-    body.dark-theme h1 { color: #80deea; }
-    body.dark-theme h2 { color: #4dd0e1; }
+    /* DARK MODE VARIABLES */
+    body.dark-theme {
+      --bg-gradient: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+      --card-bg: rgba(30, 39, 46, 0.95);
+      --text-main: #f5f6fa;
+      --text-muted: #dcdde1;
+      --accent-color: #00cec9;
+      --accent-hover: #81ecec;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      transition: background 0.5s ease, color 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* PREMIUM CARD CONTAINER */
+    .portfolio-container {
+      max-width: 800px;
+      width: 100%;
+      background: var(--card-bg);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 40px;
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+      transition: all 0.5s ease;
+      animation: fadeIn 1s ease-out; /* Page load animation */
+    }
+
+    /* HEADER & IMAGE */
+    .header {
+      text-align: center;
+      position: relative;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--accent-color);
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    /* THEME BUTTON (UPPER RIGHT) */
+    .theme-btn {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .theme-btn:hover {
+      transform: scale(1.1) rotate(15deg);
+      background: var(--accent-hover);
+    }
+
+    /* SECTIONS */
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--accent-hover);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .section-box {
+      background: rgba(127, 143, 166, 0.05);
+      padding: 25px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s;
+    }
+    .section-box:hover {
+      transform: translateY(-5px); /* Hover animation */
+    }
+
+    /* SKILLS LIST */
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .skills-list li {
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .skills-list i {
+      color: var(--accent-color);
+      font-size: 1.4rem;
+      width: 30px;
+      text-align: center;
+    }
+
+    /* GAME & FORM INPUTS */
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: transparent;
+      color: var(--text-main);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--accent-color);
+    }
+    body.dark-theme input, body.dark-theme textarea {
+      border: 1px solid #576574;
+    }
+
+    /* BUTTONS */
+    .primary-btn {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .primary-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+    .primary-btn i {
+      margin-left: 8px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 600px) {
+      .portfolio-container { padding: 25px; }
+      .theme-btn { top: 0; right: 0; }
+    }
   </style>
 </head>
 <body>
 
-  <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
-
-  <div class="profile-card">
-    <h1>Hello, I am Saif Ali!</h1>
+  <div class="portfolio-container">
     
-    <div class="project-section" style="text-align: center;">
-      <h2 style="margin-top: 0;">🎮 Number Guessing Game</h2>
-      <p>Maine 1 se 20 ke beech ek number socha hai. Guess karein!</p>
+    <div class="header">
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle Dark Mode">
+        <i class="fa-solid fa-moon"></i>
+      </button>
       
-      <input type="number" id="guessInput" placeholder="1-20" style="padding: 10px; border-radius: 8px; width: 50%; border: 1px solid #ccc;">
-      <br><br>
-      <button onclick="checkGuess()" class="btn" style="background-color: #ff9800; width: 60%;">Guess Karo! 🎯</button>
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400" alt="Saif Ali Coding" class="profile-img">
       
-      <p id="gameResult" style="font-weight: bold; margin-top: 20px; min-height: 25px;"></p>
+      <h1>Saif Ali</h1>
+      <p class="subtitle"><i class="fa-solid fa-code"></i> Aspiring Python & Web Developer</p>
     </div>
 
-    <div class="project-section">
-      <h2 style="margin-top:0">Contact Me</h2>
-      <form action="https://formspree.io/f/mzdkbwaj" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
-        <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-        <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-        <textarea name="message" placeholder="Message" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-        <button type="submit" class="btn">Send Message 🚀</button>
+    <div class="section-box">
+      <h2><i class="fa-solid fa-bolt"></i> My Skills</h2>
+      <ul class="skills-list">
+        <li>
+          <i class="fa-brands fa-html5"></i> 
+          <span><b>Web Development:</b> Building modern UI with HTML, CSS, and basic JavaScript.</span>
+        </li>
+        <li>
+          <i class="fa-brands fa-python"></i>
+          <span><b>Python Logic:</b> Creating programs based on logic, loops, and conditions.</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-brain"></i>
+          <span><b>Problem Solving:</b> Brainstorming ideas and debugging code effectively.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-box" style="text-align: center;">
+      <h2><i class="fa-solid fa-gamepad"></i> Project 1: Number Guesser</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">I've thought of a secret number between 1 and 20. Try to guess it below!</p>
+      
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <input type="number" id="guessInput" placeholder="Enter number (1-20)" style="width: 60%; margin-bottom: 0;">
+        <button onclick="checkGuess()" class="primary-btn" style="width: auto;">Guess <i class="fa-solid fa-bullseye"></i></button>
+      </div>
+      
+      <p id="gameResult" style="font-weight: 600; margin-top: 15px; min-height: 25px; font-size: 1.1rem;"></p>
+    </div>
+
+    <div class="section-box">
+      <h2><i class="fa-solid fa-envelope"></i> Let's Connect</h2>
+      <form action="https://formspree.io/f/mzdkbwaj" method="POST">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+        <input type="email" name="email" placeholder="Your Email Address" required>
+        <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
+        <button type="submit" class="primary-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
       </form>
     </div>
+
   </div>
 
   <script>
-    // Theme Toggle
+    // 1. DARK MODE LOGIC WITH ICON CHANGE
     function toggleTheme() {
       document.body.classList.toggle("dark-theme");
-      let btn = document.getElementById("theme-btn");
-      btn.innerHTML = document.body.classList.contains("dark-theme") ? "☀️ Light Mode" : "🌙 Dark Mode";
+      let icon = document.querySelector("#themeBtn i");
+      
+      if (document.body.classList.contains("dark-theme")) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      } else {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+      }
     }
 
-    // Game Logic
+    // 2. LIVE GAME LOGIC (WITH CONFETTI)
     let secretNumber = Math.floor(Math.random() * 20) + 1;
     let attempts = 0;
 
     function checkGuess() {
-      let userGuess = parseInt(document.getElementById("guessInput").value);
+      let guessInput = document.getElementById("guessInput");
+      let userGuess = parseInt(guessInput.value);
       let resultText = document.getElementById("gameResult");
+      
+      // Check if input is empty
+      if (isNaN(userGuess) || userGuess < 1 || userGuess > 20) {
+        resultText.innerHTML = "Please enter a number between 1 and 20! <i class='fa-solid fa-circle-exclamation'></i>";
+        resultText.style.color = "#e74c3c";
+        return;
+      }
+
       attempts++;
 
       if (userGuess === secretNumber) {
-        resultText.innerHTML = "🎉 BINGO! Aapne " + attempts + " koshishon mein jeet liya!";
-        resultText.style.color = "green";
+        resultText.innerHTML = "🎉 BINGO! You guessed it in " + attempts + " attempts!";
+        resultText.style.color = "#2ecc71";
         
-        // Patakhe phodo!
-        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        // Trigger Confetti Celebration
+        confetti({
+          particleCount: 200,
+          spread: 90,
+          origin: { y: 0.6 },
+          colors: ['#0984e3', '#00cec9', '#fdcb6e', '#e17055']
+        });
         
-        // Naya number socho agle game ke liye
+        // Reset Game automatically
         secretNumber = Math.floor(Math.random() * 20) + 1;
         attempts = 0;
+        guessInput.value = "";
       } 
       else if (userGuess < secretNumber) {
-        resultText.innerHTML = "Bada number sochiye! ⬆️";
-        resultText.style.color = "#d35400";
+        resultText.innerHTML = "Too low! Try a bigger number. <i class='fa-solid fa-arrow-up'></i>";
+        resultText.style.color = "#e67e22";
       } 
       else {
-        resultText.innerHTML = "Chhota number sochiye! ⬇️";
-        resultText.style.color = "#d35400";
+        resultText.innerHTML = "Too high! Try a smaller number. <i class='fa-solid fa-arrow-down'></i>";
+        resultText.style.color = "#e67e22";
       }
     }
   </script>
 </body>
-</html>
+  </html>
