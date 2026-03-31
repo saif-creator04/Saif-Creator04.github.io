@@ -63,6 +63,7 @@
       background-color: #37474f; color: white; border-color: #546e7a;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -147,6 +148,19 @@ else:
       else if (userGuess === secretNumber) {
         resultText.innerHTML = "🎉 BINGO! Aapne " + attempts + " koshishon mein sahi number (" + secretNumber + ") dhoondh liya!";
         resultText.style.color = "green"; // Sahi hone par hara rang
+        else if (userGuess === secretNumber) {
+        resultText.innerHTML = "🎉 BINGO! Aapne " + attempts + " koshishon mein sahi number (" + secretNumber + ") dhoondh liya!";
+        resultText.style.color = "green"; 
+
+        // ==========================================
+        // JADOO: Jeetne par patakhe phodo! 🎉
+        // ==========================================
+        confetti({
+          particleCount: 150, // Kitne patakhe phootenge
+          spread: 100,         // Kitne door tak failenge
+          origin: { y: 0.6 }   // Screen par kahan se shuru honge (0.6 yaani thoda niche se)
+        });
+      }
       } 
       else if (userGuess < secretNumber) {
         resultText.innerHTML = "Bada number sochiye! ⬆️ (Koshish: " + attempts + ")";
