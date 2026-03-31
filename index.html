@@ -5,6 +5,8 @@
   <title>Portfolio | Saif Ali</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -20,50 +22,27 @@
     .profile-img { max-width: 100%; border-radius: 15px; margin-bottom: 25px; }
     h1 { color: #006064; margin-top: 0; font-size: 2.5em; }
     h2 { color: #00838f; border-bottom: 2px solid #b2ebf2; display: inline-block; padding-bottom: 5px; }
-    .skills-list { text-align: left; line-height: 1.8; max-width: 500px; margin: 0 auto; }
     .project-section {
       background-color: #f1f8f9; padding: 25px; border-radius: 15px; 
       margin: 30px 0; text-align: left; border: 1px solid #cceef3; transition: all 0.5s ease;
-    }
-    .code-box {
-      background-color: #263238; color: #ffeb3b; padding: 18px; 
-      border-radius: 8px; overflow-x: auto; font-family: 'Courier New', monospace;
     }
     .btn {
       display: inline-block; background-color: #00796b; color: white; border: none; cursor: pointer;
       padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 16px;
     }
-    .github-btn {
-      display: inline-block; background-color: #37474f; color: white; 
-      padding: 12px 22px; text-decoration: none; border-radius: 8px; margin-top: 15px;
-    }
     #theme-btn {
       background-color: #333; color: white; border: none; padding: 10px 20px;
-      border-radius: 20px; cursor: pointer; font-size: 16px; position: absolute; 
-      top: 20px; right: 20px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      border-radius: 20px; cursor: pointer; font-size: 14px; position: absolute; 
+      top: 20px; right: 20px; font-weight: bold;
     }
 
-    /* NAYI CSS: CONTACT FORM KE LIYE */
-    .contact-form {
-      display: flex; flex-direction: column; gap: 15px; margin-top: 20px; text-align: left;
-    }
-    .contact-form input, .contact-form textarea {
-      padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; font-family: inherit;
-    }
-    .contact-form textarea { resize: vertical; min-height: 100px; }
-
-    /* DARK MODE CSS */
+    /* DARK MODE STYLES */
     body.dark-theme { background: linear-gradient(135deg, #121212 0%, #2c3e50 100%); color: #e0e0e0; }
-    body.dark-theme .profile-card { background-color: #1e1e1e; box-shadow: 0 10px 30px rgba(255,255,255,0.05); }
-    body.dark-theme h1 { color: #80deea; }
-    body.dark-theme h2 { color: #4dd0e1; border-bottom: 2px solid #006064; }
+    body.dark-theme .profile-card { background-color: #1e1e1e; }
     body.dark-theme .project-section { background-color: #263238; border-color: #37474f; }
-    body.dark-theme #theme-btn { background-color: #f1c40f; color: #333; }
-    body.dark-theme .contact-form input, body.dark-theme .contact-form textarea {
-      background-color: #37474f; color: white; border-color: #546e7a;
-    }
+    body.dark-theme h1 { color: #80deea; }
+    body.dark-theme h2 { color: #4dd0e1; }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -71,107 +50,66 @@
 
   <div class="profile-card">
     <h1>Hello, I am Saif Ali!</h1>
-    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Coding Workspace" class="profile-img">
-    <p>I love building new projects and learning programming. Welcome to my portfolio website!</p>
     
-    <h2>My Skills & Focus Areas</h2>
-    <ul class="skills-list">
-      <li><b>Web Development:</b> HTML, CSS, aur JavaScript!</li>
-      <li><b>Python Logic:</b> Creating programs based on math, logic, and calculations.</li>
-      <li><b>Problem Solving:</b> Brainstorming ideas and turning them into functional code.</li>
-    </ul>
-
-    <div class="project-section">
-      <h3 style="margin-top: 0;">Project 1: Number Guessing Game (Python)</h3>
-      <p>This is a fun game I built where the computer thinks of a random number, and you have to guess it using logic and decision-making.</p>
+    <div class="project-section" style="text-align: center;">
+      <h2 style="margin-top: 0;">🎮 Number Guessing Game</h2>
+      <p>Maine 1 se 20 ke beech ek number socha hai. Guess karein!</p>
       
-      <pre class="code-box">
-import random
-secret_number = random.randint(1, 10)
-user_guess = int(input("Guess a number (1-10): "))
-
-if user_guess == secret_number:
-    print("You won! 🎉")
-else:
-    print(f"Wrong! The number was {secret_number}")
-      </pre>
-
-      <a href="https://github.com/your-username" target="_blank" class="github-btn">
-        💻 View Full Game Code on GitHub
-      </a>
-      <div class="project-section" style="text-align: center;">
-      <h2 style="margin-top: 0; color: #00838f;">🎮 Play: Number Guessing Game</h2>
-      <p>Maine 1 se 20 ke beech ek secret number socha hai. Kya aap apne dimaag ka use karke use guess kar sakte hain?</p>
-      
-      <input type="number" id="guessInput" placeholder="Enter number (1-20)" style="padding: 12px; border-radius: 8px; width: 60%; border: 1px solid #ccc; font-size: 16px; margin-bottom: 15px;">
-      <br>
-      
+      <input type="number" id="guessInput" placeholder="1-20" style="padding: 10px; border-radius: 8px; width: 50%; border: 1px solid #ccc;">
+      <br><br>
       <button onclick="checkGuess()" class="btn" style="background-color: #ff9800; width: 60%;">Guess Karo! 🎯</button>
       
-      <p id="gameResult" style="font-weight: bold; margin-top: 20px; font-size: 18px;"></p>
-      </div>
-      
+      <p id="gameResult" style="font-weight: bold; margin-top: 20px; min-height: 25px;"></p>
+    </div>
 
-  
+    <div class="project-section">
+      <h2 style="margin-top:0">Contact Me</h2>
+      <form action="https://formspree.io/f/mzdkbwaj" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
+        <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+        <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+        <textarea name="message" placeholder="Message" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+        <button type="submit" class="btn">Send Message 🚀</button>
+      </form>
+    </div>
+  </div>
+
   <script>
+    // Theme Toggle
     function toggleTheme() {
       document.body.classList.toggle("dark-theme");
-      let button = document.getElementById("theme-btn");
-      if (document.body.classList.contains("dark-theme")) {
-        button.innerHTML = "☀️ Light Mode";
-      } else {
-        button.innerHTML = "🌙 Dark Mode";
-      }
+      let btn = document.getElementById("theme-btn");
+      btn.innerHTML = document.body.classList.contains("dark-theme") ? "☀️ Light Mode" : "🌙 Dark Mode";
     }
-    // ==========================================
-    // GAME KA JADOO (JavaScript Logic)
-    // ==========================================
-    
-    // 1. Computer ka secret number (1 se 20 ke beech)
-    let secretNumber = Math.floor(Math.random() * 20) + 1;
-    let attempts = 0; // Koshishein ginne ke liye
 
-    // 2. Button dabane par ye function chalega
+    // Game Logic
+    let secretNumber = Math.floor(Math.random() * 20) + 1;
+    let attempts = 0;
+
     function checkGuess() {
-      // User ne jo dabbe mein likha hai, use padho
       let userGuess = parseInt(document.getElementById("guessInput").value);
       let resultText = document.getElementById("gameResult");
-      
-      // Attempt badhao
       attempts++;
 
-      // 3. Shartein (if-else logic, bilkul Python jaisa!)
-      if (isNaN(userGuess) || userGuess < 1 || userGuess > 20) {
-        resultText.innerHTML = "Kripya 1 se 20 ke beech ka koi number dalein! 🚫";
-        resultText.style.color = "red";
-      } 
-      else if (userGuess === secretNumber) {
-        resultText.innerHTML = "🎉 BINGO! Aapne " + attempts + " koshishon mein sahi number (" + secretNumber + ") dhoondh liya!";
-        resultText.style.color = "green"; // Sahi hone par hara rang
-        else if (userGuess === secretNumber) {
-        resultText.innerHTML = "🎉 BINGO! Aapne " + attempts + " koshishon mein sahi number (" + secretNumber + ") dhoondh liya!";
-        resultText.style.color = "green"; 
-
-        // ==========================================
-        // JADOO: Jeetne par patakhe phodo! 🎉
-        // ==========================================
-        confetti({
-          particleCount: 150, // Kitne patakhe phootenge
-          spread: 100,         // Kitne door tak failenge
-          origin: { y: 0.6 }   // Screen par kahan se shuru honge (0.6 yaani thoda niche se)
-        });
-      }
+      if (userGuess === secretNumber) {
+        resultText.innerHTML = "🎉 BINGO! Aapne " + attempts + " koshishon mein jeet liya!";
+        resultText.style.color = "green";
+        
+        // Patakhe phodo!
+        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        
+        // Naya number socho agle game ke liye
+        secretNumber = Math.floor(Math.random() * 20) + 1;
+        attempts = 0;
       } 
       else if (userGuess < secretNumber) {
-        resultText.innerHTML = "Bada number sochiye! ⬆️ (Koshish: " + attempts + ")";
-        resultText.style.color = "#d35400"; // Hint ke liye orange rang
+        resultText.innerHTML = "Bada number sochiye! ⬆️";
+        resultText.style.color = "#d35400";
       } 
-      else if (userGuess > secretNumber) {
-        resultText.innerHTML = "Chhota number sochiye! ⬇️ (Koshish: " + attempts + ")";
-        resultText.style.color = "#d35400"; 
+      else {
+        resultText.innerHTML = "Chhota number sochiye! ⬇️";
+        resultText.style.color = "#d35400";
       }
     }
   </script>
-
 </body>
 </html>
