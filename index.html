@@ -98,20 +98,20 @@ else:
       <a href="https://github.com/your-username" target="_blank" class="github-btn">
         💻 View Full Game Code on GitHub
       </a>
-    </div>
-    
-    <div class="project-section" style="background-color: transparent; border: none; padding: 0;">
-      <h2>Contact Me</h2>
-      <form action="https://formspree.io/f/mzdkbwaj" method="POST" class="contact-form">
-        <input type="text" name="name" id="senderName" placeholder="Your Name (Aapka Naam)" required>
-        <input type="email" name="email" id="senderEmail" placeholder="Your Email (Aapki Email ID)" required>
-        <textarea name="message" id="senderMessage" placeholder="Your Message... (Aapka Sandesh)" required></textarea>
-        <button type="submit" class="btn" style="width: 100%;">Send Message 🚀</button>
-      </form>
-    </div>
+      <div class="project-section" style="text-align: center;">
+      <h2 style="margin-top: 0; color: #00838f;">🎮 Play: Number Guessing Game</h2>
+      <p>Maine 1 se 20 ke beech ek secret number socha hai. Kya aap apne dimaag ka use karke use guess kar sakte hain?</p>
+      
+      <input type="number" id="guessInput" placeholder="Enter number (1-20)" style="padding: 12px; border-radius: 8px; width: 60%; border: 1px solid #ccc; font-size: 16px; margin-bottom: 15px;">
+      <br>
+      
+      <button onclick="checkGuess()" class="btn" style="background-color: #ff9800; width: 60%;">Guess Karo! 🎯</button>
+      
+      <p id="gameResult" style="font-weight: bold; margin-top: 20px; font-size: 18px;"></p>
+      </div>
+      
 
-  </div>
-
+  
   <script>
     function toggleTheme() {
       document.body.classList.toggle("dark-theme");
@@ -120,6 +120,41 @@ else:
         button.innerHTML = "☀️ Light Mode";
       } else {
         button.innerHTML = "🌙 Dark Mode";
+      }
+    }
+    // ==========================================
+    // GAME KA JADOO (JavaScript Logic)
+    // ==========================================
+    
+    // 1. Computer ka secret number (1 se 20 ke beech)
+    let secretNumber = Math.floor(Math.random() * 20) + 1;
+    let attempts = 0; // Koshishein ginne ke liye
+
+    // 2. Button dabane par ye function chalega
+    function checkGuess() {
+      // User ne jo dabbe mein likha hai, use padho
+      let userGuess = parseInt(document.getElementById("guessInput").value);
+      let resultText = document.getElementById("gameResult");
+      
+      // Attempt badhao
+      attempts++;
+
+      // 3. Shartein (if-else logic, bilkul Python jaisa!)
+      if (isNaN(userGuess) || userGuess < 1 || userGuess > 20) {
+        resultText.innerHTML = "Kripya 1 se 20 ke beech ka koi number dalein! 🚫";
+        resultText.style.color = "red";
+      } 
+      else if (userGuess === secretNumber) {
+        resultText.innerHTML = "🎉 BINGO! Aapne " + attempts + " koshishon mein sahi number (" + secretNumber + ") dhoondh liya!";
+        resultText.style.color = "green"; // Sahi hone par hara rang
+      } 
+      else if (userGuess < secretNumber) {
+        resultText.innerHTML = "Bada number sochiye! ⬆️ (Koshish: " + attempts + ")";
+        resultText.style.color = "#d35400"; // Hint ke liye orange rang
+      } 
+      else if (userGuess > secretNumber) {
+        resultText.innerHTML = "Chhota number sochiye! ⬇️ (Koshish: " + attempts + ")";
+        resultText.style.color = "#d35400"; 
       }
     }
   </script>
