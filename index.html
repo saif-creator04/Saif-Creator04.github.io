@@ -252,6 +252,29 @@
       
       <p id="gameResult" style="font-weight: 600; margin-top: 15px; min-height: 25px; font-size: 1.1rem;"></p>
     </div>
+    <div class="section-box" style="text-align: center;">
+      <h2><i class="fa-solid fa-key"></i> Project 2: Password Generator</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">Need a strong, secure password? My Python-inspired logic will create one for you!</p>
+      
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+        <label for="passLength" style="font-weight: 600;">Length of Password:</label>
+        
+        <select id="passLength" style="width: 50%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-main); font-size: 1rem;">
+          <option value="8">8 Characters</option>
+          <option value="12" selected>12 Characters (Recommended)</option>
+          <option value="16">16 Characters</option>
+          <option value="20">20 Characters</option>
+        </select>
+
+        <button onclick="generatePassword()" class="primary-btn" style="width: 50%; background: #9b59b6;">
+          Generate <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </button>
+      </div>
+      
+      <div id="passwordResult" style="margin-top: 25px; padding: 15px; border-radius: 10px; background: rgba(0,0,0,0.05); font-family: monospace; font-size: 1.3rem; letter-spacing: 2px; font-weight: bold; min-height: 55px; word-break: break-all;">
+        Your Password Will Appear Here
+      </div>
+    </div>
 
     <div class="section-box">
       <h2><i class="fa-solid fa-envelope"></i> Let's Connect</h2>
@@ -324,6 +347,37 @@
         resultText.style.color = "#e67e22";
       }
     }
-  </script>
+  // ==========================================
+    // PROJECT 2: PASSWORD GENERATOR LOGIC
+    // ==========================================
+    function generatePassword() {
+      // 1. Saare Akshar (Jaise Python ki 'string' library thi)
+      const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+      
+      // 2. User ne kitni length chuni hai
+      let length = parseInt(document.getElementById("passLength").value);
+      
+      let password = "";
+      
+      // 3. For Loop (Jaise Python mein tha)
+      for (let i = 0; i < length; i++) {
+        // Achanak ek akshar chunna
+        let randomIndex = Math.floor(Math.random() * chars.length);
+        password += chars[randomIndex];
+      }
+
+      // 4. Screen par dikhana aur thoda patakha phodna
+      let resultBox = document.getElementById("passwordResult");
+      resultBox.innerText = password;
+      resultBox.style.color = "var(--text-main)";
+      
+      // Chota sa Confetti effect password banne ki khushi mein
+      confetti({
+        particleCount: 50,
+        spread: 60,
+        origin: { y: 0.8 },
+        colors: ['#9b59b6', '#8e44ad'] // Purple shades for magic!
+      });
+    }</script>
 </body>
   </html>
